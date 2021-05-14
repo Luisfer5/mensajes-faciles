@@ -22,7 +22,6 @@ document
 
 document.getElementById("generateUrl").addEventListener("click", () => {
   let urlGenerate = getData();
-
   copy2DToClipboard(urlGenerate);
 });
 
@@ -54,6 +53,7 @@ function submit() {
   }
 }
 
+//get values from input fields
 const getData = () => {
   const number = document.getElementById("number").value;
 
