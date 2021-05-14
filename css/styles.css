@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo{
+
+    max-width: 100%;
+    background-color: transparent;
+    height: 60px;
+}
+
+.error{
+    display: none;
+    color: #bb2929;
+    font-size: smaller;
+    margin-left: 5px;
+}
+
+
+.btn:hover{
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+label{
+    font-weight: 800;
+    padding-bottom: 6px;
+}
+
+.created{
+    font-size: small;
+    font-weight: 600;
+}
+.container{
+    z-index: 100;
+}
+.form{
+    padding: 10px;
+    transition: 1s ease;
+    border-radius: 10px;
+    border-color: green;
+}
+.form:hover{
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+     background-color: rgba(255, 255, 255, 0.986); 
+}
+body{
+    z-index: -1;
+    background-image: linear-gradient(135deg,rgba(255, 255, 255, 0.972) 30%,rgba(255, 255, 255, 0.90) 40%,rgba(93, 140, 241, 0.453)),url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    min-width: 100%;
+    background-size: cover;
+    /* min-height: 100vh; */
+}
+
+.form-control, .idelete{
+    line-height: 1.5;
+}
+
+.idelete{
+    position: relative;
+    padding: 1rem 1rem;
+    color: #bb2929;
+    transition: 0.5s ease;
+}
+.idelete:hover{
+    color: red;
+}
+    
+
+.idelete:before{
+    position: absolute;
+    top:20%;
+    /* vertical-align: middle; */
+}
+
+
+table tbody {
+    display: block;
+    max-height: 230px;
+    overflow-y: scroll;
+    transition: 1s ease;
+}
+.pre-animation {
+    max-height: 0;
+    height: 230px;
+}
+  
+.pre-animation2 {
+    max-height:0 ;
+    /* height: 300; */
+}
+
+table thead, table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    height: 30px; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    transition: 1s ease;
+
+/* se posiciona relativamente para el mensaje descriptivo  */
+    position:relative;
+}
+  
+.cell-content{
+
+    overflow: hidden;
+    height: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: 2s ease;
+}
+.info-cell{
+    position:absolute;
+    z-index: 300;
+    display: none;
+    top: 30px;
+    left: 50px;
+    border: 1px solid black;
+    background-color: rgba(36, 33, 33, 0.76);
+    color: white;
+    max-width: 400px;
+    max-height: 3rem;
+    white-space: normal;
+    margin: 1rem;
+    border-radius: 3px;
+    font-size: 0.92rem;
+}
+
+.cell-content:hover .info-cell{
+    display: block;
+}
+
+/* cell width limit */
+/* td, th
+{
+    width: 65px;
+    max-width: 65px;
+    white-space: nowrap;
+    overflow: hidden;
+} */
+    
+
+/* Btn configuration  */
+    
+
+.icon{
+    transition: 1s ease;
+}
+.btn:hover .icon{
+    font-size: 1.3rem;
+}
