@@ -12,8 +12,9 @@ document.querySelector(".idelete").addEventListener("click", () => {
   document.getElementById("number").value = "";
 });
 
-document.getElementById("submit").addEventListener("click", () => {
+document.getElementById("submit").addEventListener("click", (e) => {
   submit();
+  e.preventDefault();
 });
 
 document
@@ -47,10 +48,11 @@ function submit() {
       graficaLine.setData(data);
       graficaBar.setData(data);
     }
-    window.open(link, "_blank");
+    window.open(link, "child-tab");
   } else {
     alert("Por favor valide antes el numero de telefono");
   }
+  return false;
 }
 
 //get values from input fields
