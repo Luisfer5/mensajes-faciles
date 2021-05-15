@@ -4,7 +4,7 @@ export const createChart = () => {
 
     if (JSON.parse(localStorage.getItem('Info'))) {
 
-        let arraygroupedDayhours = chart();
+        let [arraygroupedDayhours,lastDaygrouped] = chart();
 
         var data = []
 
@@ -34,11 +34,21 @@ export const createChart = () => {
             resize: true,
         });
         // const bar = Morris.Bar(options);
+        const dataLastDay =[{label:Object.keys(lastDaygrouped)[0],value:lastDaygrouped[Object.keys(lastDaygrouped)[0]].length}]
 
-        var data2 = [
-            { label: '2014', value: 50, b: 90 },
-            { label: '2015', value: 65, b: 75 },
-        ]
+        const donut = Morris.Donut({
+            element: 'chart_donut2',
+            data:  dataLastDay,           // data:[{label : 'label testing ',value: 50}],
+            xkey: 'label',
+            ykeys: ['value'],
+            labels: ['Cantidad'],
+            resize: true,
+            fillOpacity: 0.6,
+            barColors: ['#5e2590'],
+            hideHover: 'auto',
+            behaveLikeLine: true,
+            resize: true,
+        });
 
         const linia = Morris.Line({
             element: 'myfirstchart',
@@ -60,10 +70,10 @@ export const createChart = () => {
 
         bar.setData(data)
 
-        return [bar, linia];
+        return [bar, linia,donut];
     }
 
-    return [null, null];
+    return [null, null , null];
 }
 
 
@@ -91,17 +101,17 @@ export function chart() {
         for (const hour of groupedDataLastDay[lastdateShortFormat]) {
 
             let key = hour.slice(0, 13) //key in format aaaa-mm-dd HH
-            console.log(hour)
             groupedDayhours[key] = [...groupedDayhours[key] || [], hour]
         }
 
         let arrayGroupeedDayHours = [];
 
         for (const key of Object.keys(groupedDayhours)) {
-            console.log(`la hora : ${key} tiene ${groupedDayhours[key].length}`)
+            // console.log(`la hora : ${key} tiene ${groupedDayhours[key].length}`)
             arrayGroupeedDayHours.push({ "key": key, "cantidad": groupedDayhours[key].length })
         }
-        return arrayGroupeedDayHours;
+
+        return [arrayGroupeedDayHours,groupedDataLastDay];
     } else {
         return [{ "key": 0, "cantidad": 0 }]
     }

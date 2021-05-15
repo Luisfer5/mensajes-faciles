@@ -6,7 +6,7 @@ document.getElementById("number").addEventListener("blur", validator);
 
 showHistorial();
 
-let [graficaBar, graficaLine] = createChart(); //instances charts
+let [graficaBar, graficaLine, donut] = createChart(); //instances charts
 
 document.querySelector(".idelete").addEventListener("click", () => {
   document.getElementById("number").value = "";
@@ -35,18 +35,26 @@ function submit() {
     showHistorial();
 
     if (graficaBar === null) {
-      [graficaBar, graficaLine] = createChart();
+      [graficaBar, graficaLine, donut] = createChart();
     } else {
-      var arraygroupedDayhours = chart();
+      var [arraygroupedDayhours, lastDaygrouped] = chart();
       var data = [];
 
       for (const item of arraygroupedDayhours) {
         data.push({ label: `${item.key}:00`, value: `${item.cantidad}` });
       }
 
-      console.log("la data es: ", data);
+      //data for donut chart
+      const dataLastDay = [
+        {
+          label: Object.keys(lastDaygrouped)[0],
+          value: lastDaygrouped[Object.keys(lastDaygrouped)[0]].length,
+        },
+      ];
+      // console.log("la data es: ", data);
       graficaLine.setData(data);
       graficaBar.setData(data);
+      donut.setData(dataLastDay);
     }
     window.open(link, "child-tab");
   } else {
