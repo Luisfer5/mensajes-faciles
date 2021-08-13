@@ -45,7 +45,7 @@ label{
 }
 body{
     z-index: -1;
-    background-image: linear-gradient(135deg,rgba(255, 255, 255, 0.972) 30%,rgba(255, 255, 255, 0.90) 40%,rgba(93, 140, 241, 0.453)),url("../images/bg.jpg");
+    background-image: linear-gradient(135deg,rgba(255, 255, 255, 0.899) 30%,rgba(255, 255, 255, 0.80) 40%,rgba(93, 140, 241, 0.353)),url("../images/bg2.jpg");
     background-repeat: no-repeat;
     min-width: 100%;
     background-size: cover;
